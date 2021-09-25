@@ -1,0 +1,218 @@
+@import "../variables"
+
+.Bills
+  .billsRow
+    margin-bottom: 10px
+  .table
+    font-weight: bold
+    th
+      &.th-number
+        min-width: 122px
+        >button
+          color: white !important
+          background-color: $color-arcblue !important
+      &.th-date
+        min-width: 157px
+        >div
+          color: white
+          background-color: $color-orange !important
+      &.th-companyName >div
+        color: white
+        background-color: $color-darkgreen !important
+    td
+      &.td-number >label
+        color: $color-arcblue !important
+      &.td-date >label
+        color: $color-orange !important
+      &.td-companyName >label
+        color: $color-darkgreen !important
+
+.modal
+  &-editBill
+    .modal-dialog
+      width: 100%
+      max-width: 615px
+      .modal-content
+        background-color: white
+        color: $color-blue
+        .modal-header
+          border: 0 !important
+          padding-top: 0
+          padding-right: 0
+          .modal-title
+            padding-top: 10px
+            font-weight: bold
+            .h4
+              font-weight: bold
+          .inputGroup
+            max-width: 200px
+            .form-control
+              color: inherit
+              width: 200px
+              max-width: 100%
+              float: right
+              border-top: 0 !important
+              border-right: 0 !important
+            .react-datepicker__input-container input
+              width: 100%
+              max-width: 100%
+              border-right: 0 !important
+              margin-bottom: 0
+              color: inherit
+              float: right
+              display: block
+              height: calc(1.5em + .75rem + 2px)
+              padding: .375rem .75rem
+              font-size: 1rem
+              font-weight: 400
+              line-height: 1.5
+              background-color: #fff
+              background-clip: padding-box
+              transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+            .react-datepicker-popper
+              z-index: 111
+        .modal-body
+          display: flex
+          flex-wrap: wrap
+          padding: 0
+          .select-customer
+            color: $color-blue
+            z-index: 50
+            margin-bottom: -2px !important
+            border-top: 2px solid $color-lightbackground-background !important
+            border-right: 2px solid $color-lightbackground-background !important
+            font-weight: bold
+          .persionalInfo
+            margin-left: auto
+            margin-bottom: 0
+            font-size: .83rem
+            padding-right: .5rem !important
+            .form-check
+              max-width: 152px
+              padding-left: 0
+              display: flex
+              justify-content: center
+              align-items: center
+              line-height: 1rem
+              #formBasicCheckbox
+                margin-right: .75rem
+                border-color: $color-lightbackground-background !important
+              .form-check-label
+                max-width: calc((100% - 16px) - .75rem)
+          .table
+            overflow: hidden
+            td
+              padding-top: 0
+              padding-bottom: 18px
+              padding-right: 0
+              border-width: 2px
+              vertical-align: top
+              &.td-positionName
+                padding-left: 0
+                min-width: 217px
+                textarea
+                  height: calc(76px + 1rem)
+                  border-top: 0 !important
+                  border-left: 0 !important
+                  padding-left: 1rem
+                  padding-top: .75rem
+              &.td-input
+                overflow: hidden
+                width: 214px
+                padding-left: 15px
+                .input-group
+                  input
+                    border-top: 0 !important
+                    border-bottom: 0 !important
+                    border-right: 0 !important
+                    padding-right: calc(35px + .75em)
+                  .input-group-text
+                    position: absolute
+                    z-index: 10
+                    right: 0
+                    top: 1px
+                    color: $color-blue !important
+                    border: 0 !important
+                    background: transparent
+                    border-radius: 0
+                select.form-control
+                  margin-bottom: 0
+                  width: 100%
+                  border-left: 2px solid $color-lightbackground-background !important
+              &.td-addPosition
+                padding-left: 0
+                button
+                  max-width: 180px
+                  min-width: 180px
+                  width: 180px
+                  float: left
+                  border-top: 0 !important
+                  border-left: 0 !important
+        .modal-footer
+          border: 0 !important
+          padding: 0 !important
+          .btn-tSubmit
+            margin: 0 0 0 auto
+            @include  media-breakpoint-up(md)
+              order: 2
+          .alert
+            margin: 0
+            border-radius: 0
+            padding: 6px 20px 6px 14px
+            @include  media-breakpoint-down(sm)
+              width: 100%
+
+.modalPdf
+  @include media-breakpoint-down(sm)
+    padding: 0 !important
+  .modal-dialog
+    max-width: max-content
+    margin-bottom: -24px
+    .modal-content
+      height: 100%
+      .modal-body
+        position: relative
+        padding: 0
+        margin-bottom: -24px
+        .react-pdf__Page__canvas
+          max-width: 100vw
+          height: auto !important
+        iframe
+          width: 100%
+          height: 100%
+
+.react-pdf__Page:not(:first-child)
+  .react-pdf__message--error
+    display: none
+
+
+.btn-addBill.btn-nDefault
+  position: absolute
+  right: 0
+  top: 0
+  border-right: 0
+  border-top: 0
+  background: #7db8ff
+  border-color: #4286d7
+  color: white
+  width: 46px
+  height: 30px
+  box-shadow: none !important
+
+.btn-sortTable
+  &:after
+    display: inline-block
+    width: 0
+    height: 0
+    margin-left: 8px
+    vertical-align: .255em
+    content: ""
+    border-bottom: .3em solid
+    border-right: .3em solid transparent
+    border-top: 0
+    border-left: .3em solid transparent
+  &.up:after
+    border-top: .3em solid
+    border-right: .3em solid transparent
+    border-bottom: 0
+    border-left: .3em solid transparent

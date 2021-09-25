@@ -1,0 +1,149 @@
+@import "../variables"
+
+.User
+  .input-billLogic
+    max-width: max-content
+    width: calc(50% - 24px)
+    position: absolute
+    top: 0
+    left: calc(50% + 6px)
+    @include media-breakpoint-down(xs)
+      position: relative
+      max-width: max-content
+      min-width: min-content
+      left: unset
+      margin-left: calc(50% + 9px)
+    &.edit
+      .btn-info
+        @include media-breakpoint-down(lg)
+          margin-left: -21px
+    .btn-info
+      margin-top: 2px
+    #billLogic
+      margin: 0
+    label
+      padding-left: 0
+      padding-right: 15px
+      padding-top: 12px
+
+  .container-btnEdit
+    z-index: 60
+    position: sticky
+    max-width: 722px
+    top: -38px
+    @include media-breakpoint-down(lg)
+      width: calc(100% - 15px)
+      max-width: 600px
+    .btn-edit
+      top: 0
+      right: 0
+      left: unset
+  .card-info
+    z-index: 60
+    margin-left: -7px
+    max-width: calc(100vw - 20px)
+    @include media-breakpoint-down(xs)
+      left: 20px !important
+  .btn-edit
+    right: -2px
+    height: 38px
+    transition: none
+    background-color: $color-blue
+    border-color: $color-blue
+    position: absolute
+    &:hover
+      background-color: #90b6e4
+    &.btn-tSubmit
+      left: calc(50% + 6px)
+      width: calc(50% + -7px)
+      min-width: unset
+    &-top
+      top: -2px
+    &-bottom
+      bottom: -2px
+
+  .container-buttons-top
+    position: relative
+    max-width: max-content
+    margin-left: -28px
+    margin-bottom: 13px
+    width: calc(100% + 56px)
+    &:before
+      content: "UmsSt check:"
+      width: 100%
+      height: 38px
+      background-color: $color-background-light
+      position: absolute
+      z-index: 1
+      top: 0
+      padding: 12px 26px 0
+      color: $color-text
+      font-size: .8rem
+
+
+    #selectUstrSetting
+      position: relative
+      z-index: 1
+      border: 2px solid $color-lightbackground-background !important
+      border-left: 2px solid $color-background-light !important
+      border-top: 2px solid $color-background-light !important
+      background-color: transparent !important
+      transition: all ease .3s
+      padding-left: 124px
+      margin-top: -2px
+      &[disabled=""]
+        cursor: default !important
+      &:not([disabled=""]):hover
+        background-color: rgba($color-blue, .025) !important
+        color: $color-text-darker !important
+  .user-bottom-container
+    position: relative
+    z-index: 1
+    background-color: $color-background-light
+
+  form:not(.form-changePassword)
+    position: relative
+    z-index: 1
+    max-width: 722px
+    background-color: rgb(236, 245, 255)
+    font-weight: bold
+    color: $color-text-darker
+    width: 100%
+    overflow: hidden
+    @include media-breakpoint-down(lg)
+      max-width: 600px !important
+    @include media-breakpoint-down(sm)
+      width: 600px !important
+      max-width: calc(100% - 15px) !important
+    .form-border
+      padding: 0 26px 36px
+      border: 2px solid $color-lightbackground-background
+      border-left: 0
+    .form-group
+      margin-bottom: 0
+  .alert-success-pw
+    border-radius: 0
+    padding: 5px 23px 5px 12px
+
+
+  .mAccordion
+    margin-top: -85px
+  .btn-newPass
+    padding-left: 26px
+    min-width: max-content
+  .btn-discharge
+    position: absolute
+    top: 0
+    right: 0
+    height: 38px
+    width: 46px
+    border-top: 0
+    border-right: 0
+    background: $color-lightred
+    border-color: $color-red
+    color: white
+    &:hover, &:active
+      background: $color-red !important
+      border-color: $color-red !important
+    &-bottom
+      right: -30px

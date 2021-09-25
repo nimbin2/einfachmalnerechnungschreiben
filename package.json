@@ -1,0 +1,53 @@
+{
+  "name": "cf-bills",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@react-pdf/renderer": "^1.6.13",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.6.0",
+    "create-react-class": "^15.7.0",
+    "history": "^4.10.1",
+    "js-file-download": "^0.4.12",
+    "moment": "^2.29.1",
+    "node-sass": "^4.14.1",
+    "pdf-viewer-reactjs": "^2.2.2",
+    "react": "^16.14.0",
+    "react-bootstrap": "^1.4.3",
+    "react-bootstrap-date-picker": "^5.1.0",
+    "react-bootstrap-maskedinput": "^0.4.0",
+    "react-currency-format": "^1.0.0",
+    "react-datepicker": "^2.16.0",
+    "react-dom": "^16.14.0",
+    "react-escape-outside": "^0.1.2",
+    "react-number-format": "^4.4.4",
+    "react-pdf": "^4.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {}
+}

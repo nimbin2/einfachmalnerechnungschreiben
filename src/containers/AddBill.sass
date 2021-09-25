@@ -1,0 +1,295 @@
+@import "../variables"
+
+@keyframes animateDelete
+  0%
+    width: 0
+  100%
+    width: 42px
+
+.page.page-addBill
+  min-height: unset
+  .AddBill
+    width: calc(100% + 2px)
+    height: auto
+    min-height: auto
+    .addBill-container
+      background-color: $color-background-light
+    .btn-info
+      z-index: 111
+      margin-left: 18px
+      margin-top: 1px
+    .react-datepicker__tab-loop
+      z-index: 111
+    .pageHeader, .select-customer select
+      min-width: 350px
+      @include media-breakpoint-down(sm)
+        min-width: unset
+    .setAccordion
+      position: absolute
+      right: 0
+      top: 23px
+      min-width: 339px
+      button:not(.btn-cardMore)
+        width: 339px
+        max-width: 339px
+        @include media-breakpoint-down(md)
+          width: 250px
+    .row-inputTopLeft
+      position: sticky
+      margin-top: 38px
+      top: -38px
+      z-index: 50
+      max-width: max-content
+      margin-left: auto !important
+      margin-right: 1px
+      @include media-breakpoint-down(md)
+        margin-top: 0
+      input
+        margin-right: -1px
+      .input-billNumber
+        z-index: 50
+        border: 0 !important
+        @include media-breakpoint-down(sm)
+          width: 167px
+      .react-datepicker-wrapper
+        width: 250px
+        z-index: 50
+        @include media-breakpoint-down(sm)
+          width: 167px
+        .react-datepicker__input-container
+          width: 250px
+          background: #5583b1
+          padding-top: 8px
+          margin-top: -8px
+          @include media-breakpoint-down(sm)
+            width: 167px
+          input
+            float: right
+            width: 100%
+            height: 38px
+            padding: .375rem .75rem
+            border: 0 !important
+
+    .block-topleft
+      position: absolute
+      right: 0
+      width: 339px
+      height: 163px
+      z-index: 5
+      padding: $page-padding-v $page-padding-h
+      background-color: $color-garyblue
+      @include media-breakpoint-down(md)
+        padding: 0
+        background: transparent
+        width: auto
+      input
+        box-shadow: inset 1px 1px 3px #3f679433 !important
+
+        &:last-child
+          margin-bottom: 0
+    .row
+      margin-left: 0
+      &:first-child
+        position: sticky
+        top: -76px
+      &.row-selectCustomer
+        position: sticky
+        top: 34px
+        z-index: 22
+        @include media-breakpoint-down(md)
+          top: -38px
+          margin-top: 50px
+      &.row-addCustomer
+        @media only screen and (max-height: 486px)
+          background: red
+      col
+        padding-left: 0
+    .col-pageHeader .pageHeader
+      position: absolute
+      left: 0
+      top: 0
+    .btn-saveBill
+      z-index: 1
+      position: absolute
+      margin-right: 0
+      right: 0
+      bottom: 0
+      width: 339px
+    .select-customer
+      display: inline-block
+      background: #316192
+      select
+        background-color: white !important
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%238fb8e3' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M2 5l6 6 6-6'/%3e%3c/svg%3e")
+        margin-bottom: 0
+        padding-left: 20px
+        font-weight: bold
+        color: $color-blue !important
+        border-top: 2px solid $color-lightbackground-background !important
+        border-right: 2px solid $color-lightbackground-background !important
+
+    .container-position
+      position: relative
+      z-index: 1
+      background-color: $color-background-light
+      margin-left: -15px
+      padding: 0 0 36px
+      max-width: 722px
+      @include media-breakpoint-down(lg)
+        max-width: calc(100% - 382px)
+      @include media-breakpoint-down(md)
+        max-width: calc(100% - 100px)
+      @include media-breakpoint-down(sm)
+        max-width: calc(100% + 30px)
+        width: calc(100% + 30px)
+      h4
+        padding-left: 26px
+      .table
+        z-index: 1
+        margin-bottom: 2rem
+        tr
+          &+tr
+            .td-btn-right
+              animation: all ease .125s
+              animation-name: animateDelete
+        td
+          vertical-align: top
+          padding-top: 0
+          border-top: 2px solid !important
+          border-color: $color-lightbackground-background !important
+          padding-right: 0
+          padding-left: 1rem
+          &:nth-child(1)
+            padding-left: 0
+
+          &:nth-child(2)
+            padding-bottom: 0
+
+            width: 201px
+
+
+          textarea, input
+            border-radius: 0
+            border-top: 0 !important
+            border-right: 0 !important
+            border-bottom: 0 !important
+            margin: 0
+          textarea
+            padding-left: 26px
+            min-height: 84px
+            border-left: 0 !important
+
+
+          select
+            border: 2px solid $color-lightbackground-background !important
+            border-right: 0 !important
+            border-bottom: 0 !important
+            margin-bottom: 1rem
+            padding-left: 26px
+            width: 100%
+            min-width: 100%
+            max-width: inherit
+            &:focus, &:active
+              outline: 1px $color-lightbackground-background solid !important
+
+          .input-group
+            position: relative
+            max-width: inherit
+            margin-bottom: 8px
+            input
+              border-right: 0 !important
+              padding-right: calc(35px + .75em)
+
+
+          input + div .input-group-text
+            position: absolute
+            z-index: 10
+            right: 0
+            top: 1px
+            color: $color-blue !important
+            border: 0 !important
+            background: transparent
+            border-radius: 0
+
+          &.td-btn-right
+            padding: 0
+            overflow: hidden
+            transition: width ease .125s
+            box-sizing: content-box
+            position: relative
+            vertical-align: top
+            button
+              position: absolute
+              top: 0
+              height: 100%
+              width: 26px
+              right: 0
+          &.td-tbn-left
+            vertical-align: top
+            padding: 0
+            border-top: 2px solid $color-lightbackground-background !important
+            border-bottom: 2px solid $color-lightbackground-background !important
+            button
+              width: 100%
+              &#addBtn
+                border-right: 0 !important
+                &:focus, &:active
+                  outline: 1px $color-darkgreen solid !important
+                  box-shadow: none !important
+
+    .select-customer-container
+      position: relative
+      z-index: 1
+      max-width: 722px
+      margin: -72px 0 0 -15px
+      @include media-breakpoint-down(md)
+        margin-top: 0
+
+    .break
+      background-color: $color-background-light
+      position: relative
+      z-index: 1
+
+    .activeCustomer
+      positioN: relative
+      z-index: 1
+      margin: -36px 0 0 -15px
+      max-width: 722px !important
+      padding: 0 26px
+      border: 2px solid $color-lightbackground-background
+      border-left: 0
+      background-color: $color-background-whiteblue
+      color: $color-text-darker
+      font-weight: bold
+      @include media-breakpoint-down(lg)
+        max-width: calc(100% - 382px) !important
+      @include media-breakpoint-down(md)
+        max-width: calc(100% - 100px) !important
+        margin-top: -2px
+      @include media-breakpoint-down(sm)
+        max-width: calc(100% + 30px) !important
+        width: calc(100% + 30px)
+        border-right: 0
+      &.show
+        height: auto
+      >.row >.col:first-child
+        padding-left: 0
+
+      input
+        width: 100%
+        color: #495057
+        background-color: #fff
+        height: calc(1.5em + .75rem + 2px)
+        padding: .375rem .75rem
+        font-size: 1rem
+        font-weight: 400
+        line-height: 1.5
+        background-clip: padding-box
+        border: 1px solid #ced4da
+        border-radius: .25rem
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+
+        &:focus
+          border-color: #80bdff
+          outline: 0
+          box-shadow: 0 0 0 .2rem rgba(0,123,255,.25)

@@ -1,0 +1,764 @@
+@import 'variables'
+
+@keyframes blurePage-on
+  0%
+    z-index: 100
+    display: inline-block
+    background-color: rgba($color-background-light, 0)
+  100%
+    background-color: rgba(192, 215, 237, 0.6)
+@keyframes rotateLoading
+  0%
+    transform: rotate(0)
+  100%
+    transform: rotate(360deg)
+@keyframes loadLoading
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+$hoverTransition: all ease 0.2s
+$NavHeight: 120px
+body
+  background-color: $color-background
+  overflow: hidden
+  max-height: 100vh
+  @include media-breakpoint-down(lg)
+    font-size: 14px
+  @include media-breakpoint-down(xs)
+    font-size: 13px
+
+.App
+  font-family: Verdana,sans-serif
+  color: $color-text
+
+.page-padding-bottom
+  width: 100%
+  border-bottom: 30px solid $color-background
+
+.page .scrollPage
+  position: absolute
+  right: 10px
+  bottom: 0
+  color: $color-blue !important
+  background: transparent !important
+  border-radius: 100% !important
+  overflow: hidden !important
+  z-index: 80
+  width: 64px
+  height: 53px
+
+.container-hideScroll
+  position: relative
+  &:before
+    z-index: 11
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    height: 36px
+    width: 100%
+    background: $color-background
+  .hideScroll
+    background: $color-background
+    z-index: 111
+    position: absolute
+    overflow: hidden
+    top: 0
+    right: -85px
+    width: 100px
+    height: calc(100vh - 100px + 36px)
+    @include media-breakpoint-down(lg)
+      //opacity: .7
+    @include media-breakpoint-down(xs)
+      display: none
+.fix-table-noScroll
+  max-width: 1125px
+  @include media-breakpoint-down(lg)
+    max-width: 100% !important
+body .container
+  @include media-breakpoint-down(lg)
+    max-width: 100% !important
+
+.page
+  position: relative
+  background-color: $color-background-light
+  //padding: $page-padding-v $page-padding-h 0 0
+  padding: 0
+  //box-shadow: 1px 1px 14px #3161922e
+  margin-top: $NavHeight
+  //max-height: calc(100vh - 140px)
+  min-height: calc(100vh - 280px)
+  @include media-breakpoint-down(lg)
+    min-height: calc(100vh - 65px)
+    margin-top: 102px
+  .page-content
+    //background: #f1f8ff
+    background: linear-gradient($color-background 36px, $color-background-light 36px)
+    padding-top: 36px
+    margin-top: -36px
+    max-height: calc(100vh - 120px + 36px)
+    min-height: calc(100vh - 80px)
+    overflow: auto
+    @include media-breakpoint-down(lg)
+      max-height: calc(100vh - 66px )
+    .col-pageHeader
+      padding-bottom: 120px
+      @include media-breakpoint-down(lg)
+        padding-bottom: 72px
+    .loadScreen
+      top: 36px
+      width: calc(100% - 15px)
+body .page-blur
+  z-index: -1
+  animation: ease .1s
+  background-color: rgba($color-background-light, 0)
+  position: absolute
+  top: 36px
+  left: 0
+  width: calc(100% - 15px)
+  height: calc(100% - 36px)
+body.blur-page .page-blur
+  z-index: 100
+  animation-name: blurePage-on
+  background-color: rgba(192, 215, 237, 0.6)
+h2
+  color: $color-blue
+  font-weight: bold
+  letter-spacing: .0089em
+
+.col-pageHeader
+  padding-bottom: 72px
+  .pageHeader
+    position: absolute
+    top: 36px
+    background: $color-blue
+    color: white
+    padding: 20px 36px 16px 26px
+    @include media-breakpoint-down(sm)
+      font-size: 25px
+      padding: 18px 26px 15px 14px
+    @include media-breakpoint-down(xs)
+      font-size: 20px
+
+input, select
+  -webkit-appearance: none
+  max-width: 250px
+  margin-bottom: 8px
+  border-radius: 0 !important
+  border: 1px solid $color-lightblue !important
+  &.error
+    box-shadow: inset 0 0 1px  $color-lightred !important
+
+button
+  &:focus
+    box-shadow: inset 0 0 2px $color-focus !important
+
+.ppl
+  padding-left: $page-padding-h
+.ppr
+  padding-right: $page-padding-h
+
+input[type="text"], textarea, input.form-control
+  border: 2px solid $color-lightbackground-background !important
+  box-shadow: inset 1px 1px 3px #7f9fc02e !important
+  background-color: white !important
+  color: $color-blue !important
+  border-radius: 0 !important
+  &::placeholder
+    color: #adcad5 !important
+  &:focus
+    //box-shadow: inset 1px 1px 3px #3161922e  !important
+    outline: 1px $color-lightbackground-background solid !important
+  &.error
+    box-shadow: inset 0 0 1px  $color-lightred !important
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+  -webkit-appearance: none !important
+  -moz-appearance: none !important
+  appearance: none !important
+  margin: 0
+input[type=number]
+  -moz-appearance: textfield !important
+
+
+.form-check
+  display: inline-block
+  input.form-check-input
+    position: relative
+    width: 16px
+    height: 16px
+    border: 1px solid $color-blue !important
+    cursor: pointer
+    outline: 1px solid #316192 !important
+    margin: 0
+    transform: translateY(1px)
+    &:checked
+      &:after
+        content: ""
+        position: absolute
+        display: block
+        -webkit-transform: rotate(45deg)
+        transform: rotate(45deg)
+        width: .375rem
+        height: .8125rem
+        border: .125rem solid $color-blue
+        border-top-color: $color-blue
+        border-top: 0
+        border-left: 0
+        margin-left: .25rem
+        margin-top: -1px
+        background-color: transparent
+
+select.form-control
+  width: auto
+select
+  min-width: max-content
+  width: auto
+  max-width: 275px
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23316192' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M2 5l6 6 6-6'/%3e%3c/svg%3e")
+  background-repeat: no-repeat
+  background-position: right .6rem center
+  background-size: 16px 12px
+  padding-right: 42px
+  padding-top: 0
+  border-radius: 0 !important
+  border: 0 !important
+  padding-bottom: 1px
+  cursor: pointer !important
+  box-shadow: none !important
+  transition: $hoverTransition
+  &.select-left
+    padding-left: 35px
+  &.select-right
+    padding-right: 35px
+  &.select-no, &[disabled=""]
+    padding-right: 13px
+    cursor: default
+    background-image: none
+  &:not(.select-no):not([disabled=""])
+    &:hover
+      opacity: .62
+      background-color: #4084b6 !important
+      border-color: #4084b6 !important
+      color: white !important
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M2 5l6 6 6-6'/%3e%3c/svg%3e")
+    &:focus, &:active
+      outline: 1px $color-lightbackground-background solid !important
+
+body button.btn-pdfModal-close
+  opacity: .78
+  position: absolute
+  z-index: 1111
+  top: 0
+  right: 25px
+  width: 50px
+  height: 50px
+  font-size: 50px !important
+  background: transparent !important
+  color: $color-blue !important
+  &:hover, &:focus, &:active
+    opacity: 1
+    font-size: 50px !important
+    background: transparent !important
+    color: $color-blue !important
+.modal-backdrop.show
+  background-color: rgba(61, 91, 119, 0.9)
+  opacity: 1 !important
+
+.modal-footer
+  display: flex
+  justify-content: space-between
+
+.cursorCopy
+  cursor: copy !important
+
+.btn-copyLink
+  color: $color-blue
+  transition: $hoverTransition
+  &:hover
+    color: forestgreen !important
+
+.form-label
+  white-space: pre-line
+
+.accordion-btn-nDefault
+  position: absolute
+  left: 13px
+  top: 50%
+  transform: translateY(-50%)
+
+.btn-info
+  position: relative
+  z-index: 1
+
+button.btn-imprint.btn-noStyle, button.btn-privacy.btn-noStyle
+  position: fixed
+  bottom: 0
+  left: 0
+  background-color: $color-background !important
+  padding: 0 8px 0 16px !important
+  font-size: 12px !important
+  &:hover, &:focus, &:active
+    background-color: $color-background !important
+    padding: 0 8px 0 16px !important
+    font-size: 12px !important
+    text-decoration: underline !important
+
+button.btn-privacy.btn-noStyle
+  padding: 0 8px 0 8px !important
+  left: 89px
+  &:hover, &:focus, &:active
+    padding: 0 8px 0 8px !important
+
+
+#privacy
+  max-width: 650px
+  max-height: 100vh
+  overflow: auto
+  margin: auto
+#imprint
+  max-width: 350px
+  margin: auto
+  text-align: center
+
+
+.LoginAuthentication
+  padding: 0
+  min-width: 100vw
+  min-height: 100vh
+  max-height: 100vh
+  overflow: auto
+  display: flex
+  .page
+    border-top: 30px solid $color-background
+    border-bottom: 30px solid $color-background
+    margin: auto
+    min-height: unset
+    padding-left: $page-padding-h
+    padding-right: $page-padding-h
+    padding-top: $page-padding-v
+#imprint, #register, #privacy
+  .col-pageHeader
+    @include media-breakpoint-down(sm)
+      padding-bottom: 62px
+    @include media-breakpoint-down(xs)
+      padding-bottom: 57px
+    .pageHeader
+      text-align: center
+      top: 0
+      width: 100%
+.btn-legalsBack
+  z-index: 111
+  position: absolute
+  left: 0
+  top: 0
+  border-color: #6381a2 !important
+  border-bottom-width: 1px !important
+  border-top: 0 !important
+  border-left: 0 !important
+button
+  box-shadow: none !important
+  text-decoration: none !important
+  &:focus, &:active
+    color: $color-whitered !important
+
+button.btn-noStyle
+  background: inherit
+  color: inherit
+  border: 0
+  font: inherit
+  padding: 0
+  margin: 0
+  border-radius: 0
+  box-shadow: none
+  outline: 0 !important
+
+  &:hover, &:active, &:focus
+    color: inherit !important
+    border: 0 !important
+    font: inherit !important
+    padding: 0 !important
+    margin: 0 !important
+    border-radius: 0 !important
+    border-color: transparent !important
+    box-shadow: none !important
+
+
+.btn-add
+  border-color: #c5e1c7 !important
+  background-color: #c5e1c7 !important
+  color: white
+  &:hover
+    color: white
+
+    background-color: $color-green !important
+    border-color: $color-green !important
+
+.btn-delete
+  color: white
+  border-color: #e0bbbb !important
+  background-color: #e0bbbb !important
+  &:hover
+    color: white
+    background-color: #dc8989 !important
+    border-color: #dc8989 !important
+
+.table
+  border-collapse: separate
+  border-spacing: 0
+  position: relative
+  z-index: 20
+  margin-bottom: 0
+  color: #36618c
+  letter-spacing: 0.01em
+  border-bottom: 2px solid $color-blue
+  td, thead th
+    border-color: $color-lightbackground-background
+    letter-spacing: 0.04em
+
+  thead
+    th
+      white-space: nowrap
+      top: -36px
+      position: sticky
+      color: #606e7b
+      border-top: 0
+      padding: 0
+      background-color: $color-background
+      input[type="checkbox"]
+        transform: translateY(-2px)
+        @include media-breakpoint-down(lg)
+          transform: translateY(2px)
+        @include media-breakpoint-down(md)
+          transform: translateY(3px)
+    &.thead-style
+      &.noMax th
+        padding: 0
+        >*:not(#checkUstrInfo)
+          width: auto
+          max-width: unset
+
+      th
+        z-index: 1
+        padding-right: 60px
+        border: 0 !important
+        @include media-breakpoint-down(sm)
+          padding-right: 30px
+        >*:not(#checkUstrInfo)
+          margin-top: -1px !important
+          display: inline-block
+          width: 100%
+          max-width: 320px
+          transform: translateY(1px)
+          background: white
+          padding: 5px 26px 4px !important
+          @include media-breakpoint-down(sm)
+            padding: 5px 14px 4px !important
+        &:first-child
+          padding-left: 0
+          >*
+            border-left: 0 !important
+            &:hover, &:focus, &:active
+              border-left: 0 !important
+        .form-check
+          background-color: transparent
+          border-right: 0 !important
+        .btn-Ustr
+          padding-right: 10px !important
+          &.active, &.active:hover, &.active:focus, &.active:active
+            width: 21px
+            height: 30px
+            transform: translate(-9px, -1px)
+            line-height: 12px !important
+            font-size: .7rem !important
+            color: inherit
+          &.active, &:hover, &:focus, &:active
+            background-color: transparent !important
+        button:not(.btn-noStyle):not(.btn-info)
+          &:hover, &:focus, &:active
+            background: white !important
+            padding: 5px 26px !important
+            border: 2px solid $color-lightbackground-background !important
+            border-right: 0 !important
+            border-bottom: 0 !important
+
+  td
+    padding: 18px 26px
+    @include media-breakpoint-down(sm)
+      padding: 13px 14px
+
+
+
+  &-hover tbody tr:hover
+    color: #304457
+    background-color: rgba($color-background, .62)
+  tbody
+    background-color: $color-background-light
+    tr
+      background: rgb(236, 245, 255)
+      td
+        vertical-align: middle
+  tr, td
+    &.table-btn-right
+      position: relative
+      min-width: 52px
+      >button, >div
+        position: absolute
+        top: 0
+        right: 0
+      button
+        @extend .btn-white-blue
+        border-top: 0
+        border-right: 0
+
+.card
+  background: transparent
+  border-radius: 0 !important
+  border: 2px solid $color-lightbackground-background !important
+  border-left: 0 !important
+  border-right: 0 !important
+  max-width: calc(100vw - 15px) !important
+  max-height: calc(100vh - 176px)
+  overflow: auto
+  .card-body
+    border: 0 !important
+  &.setLeft
+    transform: translateX(-100%)
+  .card-body
+    padding-bottom: 0
+  &-info
+    width: 100%
+    max-width: 400px
+    min-width: 320px
+    position: absolute
+    z-index: 11111
+    background-color: rgba($color-whiteorange, .95)
+    padding-bottom: 1.25rem
+    .card-body
+      white-space: break-spaces
+      text-align: left
+      font-size: 11.3px
+      letter-spacing: .02em
+
+
+.loadScreen
+  position: absolute
+  z-index: 1000
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  background-color: rgba($color-background-dark, .8)
+  display: flex
+  font-size: 86px
+  color: white
+  animation: loadLoading 2s
+
+  svg
+    animation: rotateLoading 2.12s infinite
+    margin: auto
+
+
+.missingStuff
+  position: fixed
+  top: 51px
+  border-radius: 0 !important
+  border: 0 !important
+  left: 50%
+  transform: translateX(-50%)
+  max-width: 396px
+  width: 100%
+  z-index: 111
+  height: 105px
+  font-weight: bold
+  button
+    transition: $hoverTransition
+    position: absolute
+    bottom: 0
+    width: 33.33%
+    left: 0
+    border-radius: 0
+    border-color: $color-orange !important
+    height: 32px
+    padding: 2px
+    letter-spacing: 0.004em
+    font-weight: bold
+    background-color: $color-orange
+    color: #fff3cd
+    &:hover, &:active, &:focus
+      color: white !important
+      background-color: $color-orange !important
+      border-color: $color-orange !important
+      opacity: .85
+.setAccordion
+  height: 36px
+  width: 100%
+  display: inline-block
+
+.row
+  margin-right: 0
+.mAccordion
+  position: relative
+  height: 36px
+  width: 100%
+  max-width: 700px
+  .btn-info
+    margin-top: 2px
+  .btn-openAccordion
+    position: relative
+    transform: translateY(-36px)
+    min-width: max-content
+    max-width: 275px
+    z-index: 1
+    margin-left: auto
+    font-size: .84rem
+    padding: 5px 34px 5px 45px
+    letter-spacing: 0.015em
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M2 5l6 6 6-6'/%3e%3c/svg%3e")
+    margin-bottom: 0
+    background-repeat: no-repeat
+    background-position: left .6rem center
+    background-size: 16px 12px
+    font-weight: bold
+    @include media-breakpoint-down(sm)
+      font-size: .72rem
+      min-width: 180px !important
+
+  .mAccordion-container
+    position: relative
+    height: 0
+    width: 100%
+    max-width: 700px
+    margin-top: -36px
+    margin-left: auto
+    overflow: hidden
+    display: flex
+    flex-wrap: wrap
+    box-sizing: content-box
+    &.show
+      height: auto
+
+    .card
+      width: 100%
+      max-width: 700px
+      transform: translate(calc(100% + 234px), -100%)
+      background-color: white
+      padding-bottom: 0
+      border-radius: 0
+      display: inline-block !important
+      transition: all ease .3s
+      opacity: 0
+      &.show
+        opacity: 1
+        transform: translate(0)
+
+
+      form
+        &.show
+          transform: translate(0)
+
+        .form-group
+          &.mb-0
+            display: flex
+            justify-content: flex-end
+            .alert
+              width: 100%
+              margin-left: -$page-padding-h
+              border-radius: 0
+              height: 36px
+              margin-bottom: 0
+              padding: 6px 20px 6px $page-padding-h
+        .card-header
+          border-bottom: 0 !important
+          position: relative
+          padding: 0
+
+
+  &-left
+    float: left
+    .btn-openAccordion
+      background-position: right .6rem center
+      margin-left: 0
+      margin-right: auto
+
+    .mAccordion-container
+      margin-left: 0
+      margin-right: auto
+      .card
+        transform: translate(calc(-100% + 200px), -100%)
+        padding-left: 26px
+        border-right: 0 solid $color-lightbackground-background !important
+        border-left: 0 !important
+
+body .App .Register
+  position: relative
+  min-width: 100%
+  min-height: 100vh
+  overflow: auto
+  max-height: 100vh
+  display: flex
+  .page
+    border-top: 30px solid $color-background
+    border-bottom: 30px solid $color-background
+    height: auto
+    max-height: unset
+    min-height: unset
+    background: transparent !important
+    max-width: max-content !important
+    margin: auto
+  .card
+    max-height: unset
+    position: relative
+    overflow: visible
+    border-bottom: 0 !important
+  label
+    max-width: 250px
+    font-size: 12px
+  .group-alert
+    flex-direction: column
+  form
+    .register-alerts
+      width: 100%
+
+  .alert
+    font-size: .8rem
+    width: calc(100% + 2.5rem)
+    margin: 0 0 0 -1.25rem
+    padding: 6px 1.25rem
+    border-radius: 0
+    &-success
+      position: fixed
+      left: 0
+      top: 0
+      width: 100%
+      height: 100vh
+      max-width: 100%
+      z-index: 11111
+      padding: 0
+      margin: 0
+      display: flex
+      justify-content: center
+      align-items: center
+  .col-pw
+    padding-bottom: 20px
+  .row-save
+    .btn-tSubmit
+      width: calc(50% + 10px) !important
+      min-width: unset
+      position: absolute
+      right: 5px
+      bottom: 0
+      border-bottom: 0
+
+  .card
+    width: 100%
+    background-color: white
+    border: 2px solid $color-lightbackground-background !important
+    border-bottom: 0 !important
+    border-left: 0 !important
+    padding-bottom: 0
+    border-radius: 0
+    border-right: 0 !important

@@ -1,0 +1,48 @@
+@import "../variables"
+
+@keyframes loadStatusError
+  0%
+    opacity: 0
+  80%
+    opacity: 0
+  100%
+    opacity: 1
+
+.LoginAuthentication
+  max-width: 340px
+  margin: 0 auto
+  padding: 0 50px
+  h2
+    margin-bottom: 16px
+  .btn-tDefault
+    padding-left: 45px
+    margin-left: -45px
+    width: calc(50% + 45px)
+    border-left: 0 !important
+    justify-content: flex-start
+
+  .btn-linkText
+    position: absolute
+    right: -$page-padding-h
+    padding-bottom: 2px
+    bottom: 0
+    font-size: .92rem
+    letter-spacing: .008em
+
+  .alert
+    align-self: flex-end
+    font-size: .8rem
+    //max-width: calc(250px + 1.25rem )
+    margin: 0
+    margin-left: -$page-padding-h !important
+    width: calc(100% + 90px)
+    padding: 6px 1.25rem 6px 40px
+    border-radius: 0
+    &.alert-serverError
+      position: absolute
+      top: 0
+      width: 100%
+      animation: 5s all
+      animation-name: loadStatusError
+      overflow: hidden
+      margin-bottom: 0 !important

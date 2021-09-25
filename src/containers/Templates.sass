@@ -1,0 +1,149 @@
+@import "../Elements"
+
+.page-templates
+  min-height: unset !important
+.Templates
+  min-height: unset !important
+  .setAccordion
+    height: 0
+    min-width: 294px
+    position: absolute
+    top: 0
+    right: 0
+    margin: 36px 0 0 0
+    transform: translate(-15px, 36px)
+    @include media-breakpoint-down(lg)
+      margin-right: 0 !important
+
+    &+.setAccordion
+      top: 38px
+      right: 0
+      @include media-breakpoint-down(sm)
+        top: 32px
+    button:not(.btn-cardMore):not(.btn-info)
+      min-width: 294px
+      @include media-breakpoint-down(sm)
+        min-width: 205px
+        padding-right: 14px
+        padding-left: 33px
+    .btn-info
+      background-color: white !important
+      border-radius: 0 !important
+
+  .customerTemplates
+    background-color: $color-background-light
+    position: relative
+    width: 100%
+    min-height: 200px
+    .btn-cardMore
+      margin-left: -20px
+    .popUp
+      z-index: 111
+      transform: translateY(-100%)
+    table
+      max-width: 850px !important
+      z-index: 0
+      @include media-breakpoint-down(lg)
+        width: calc(100% - 15px)
+      tbody
+        tr
+          td
+            color: $color-blue
+            padding: 7px 20px
+            border-color: $color-lightbackground-background
+            letter-spacing: 0.04em
+            @include media-breakpoint-down(sm)
+              padding: 5px 14px 0 !important
+            &:first-child
+              border-left: 0
+            &:not(:first-child)
+              border-top: 2px solid $color-lightbackground-background
+              padding-left: 32px
+
+            &:last-child
+              border-right: 0
+
+            &.td-companyName
+              min-width: 167px
+            &.td-name
+              min-width: 178px
+
+            .btn-cardEdit
+              bottom: unset
+              top: 0
+              border: 2px solid $color-lightbackground-background
+              border-top: 0
+              border-right: 0
+          &:nth-child(2n-1)
+            td
+              padding-bottom: 5px
+              &:first-child
+                border-top: 2px solid $color-background-light
+                border-bottom: 2px solid $color-lightbackground-background
+                border-right: 0 solid $color-lightbackground-background
+                background-color: white
+                text-align: right
+                color: $color-blue
+                font-weight: bold
+                letter-spacing: .023em
+          &:nth-child(2n)
+            td
+              padding-top: 3px !important
+              padding-bottom: 2px !important
+              border-top: 0
+              @include media-breakpoint-up(md)
+                padding-top: 0
+                transform: translateY(-2px)
+              &:first-child
+                border-left: 1px solid $color-background-whiteblue
+    .card
+      border: 0 !important
+      margin-top: -1px
+      position: absolute
+      left: 0
+      width: 100%
+      //height: 80px
+      &.editText
+        max-height: calc(100vh - 150px)
+      &.editText:not(.popUp)
+        margin-top: -129px
+
+      &.fixPosition
+        transform: translateY(calc(-100% + 60px))
+
+      .card-body
+        min-height: min-content
+        border: 2px solid $color-lightbackground-background !important
+        border-left: 0 !important
+        border-right: 0 !important
+        position: relative
+        @include media-breakpoint-up(lg)
+          max-width: calc(100% - 15px)
+        &.edit
+          z-index: 101
+          background: white
+    .customerRow
+      transition: all  .1s
+      border: 2px solid $color-lightbackground-background
+      background-color: $color-background-whiteblue
+      font-weight: bold
+      color: $color-text-darker
+      border-bottom: 0
+      padding-top: 15px
+      padding-bottom: 15px
+      .saveCustomer, .deleteCustomer
+        display: none
+        margin: 0
+      &.state
+        .form-group, .form-label
+          margin-bottom: 0
+      &.edit
+        padding-bottom: 0
+        border: 2px solid $color-lightbackground-background
+        >.form-row
+          padding-left: 0
+        .editCustomer-button
+          display: none
+        .saveCustomer, .deleteCustomer
+          display: inline-block
+

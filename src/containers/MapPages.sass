@@ -1,0 +1,241 @@
+@import '../variables'
+@import "~bootstrap/scss/_functions.scss"
+@import "~bootstrap/scss/mixins/_breakpoints.scss"
+@import "~bootstrap/scss/_variables.scss"
+
+.container.home-buttons
+  width: 100%
+  margin: 0
+  position: relative
+  display: inline-block
+  button
+    width: 100%
+
+.container-specialNavBtn
+  .specialNavBtn
+    position: relative
+    z-index: 1
+    vertical-align: top
+    margin-top: 6px
+    margin-left: 10px
+
+.notes
+  top: 50px
+  min-height: 150px
+  max-width: 243px
+  z-index: 1111
+  border-color: $color-arcblue !important
+  border-top: 0 !important
+  margin-left: -2px
+  @include media-breakpoint-down(sm)
+    left: 50%
+    transform: translateX(-50%)
+
+.navbar
+  background-color: $color-background-dark
+  border-bottom: 1px solid $color-background
+  padding: 0 0 0 60px
+  height: 51px
+  @include media-breakpoint-down(lg)
+    padding-left: 26px
+  @include media-breakpoint-down(md)
+    padding: 0
+    overflow: auto
+
+
+  .navbar-collapse
+    height: 100%
+  .navbar-nav
+      position: relative
+      height: 100%
+      display: flex
+      align-items: flex-end
+      @include media-breakpoint-down(sm)
+        margin: 0 !important
+
+      &:first-child .nav-link, &:last-child .nav-link:first-child
+          padding: 3px 22px 2px 21px
+          @include media-breakpoint-down(md)
+            padding: 2px 22px 2px 21px
+          @include media-breakpoint-down(lg)
+            padding: 6px 22px 2px 21px
+      &:first-child
+        @include media-breakpoint-down(md)
+          border-left: 0 !important
+
+      .nav-link
+        height: 34px
+        min-width: 46px
+        margin-right: 13px
+        font-weight: 600
+        letter-spacing: .034em
+        background-color: white !important
+        border: 2px solid white !important
+        border-bottom: 0 !important
+        color: $color-blue
+        transition: all ease .3s
+        &:hover
+          color: $color-blue !important
+
+        @include media-breakpoint-down(sm)
+          width: 50px
+          height: 40px
+          padding: 0 !important
+        &:not(.nav-link-calc):not(.nav-link-calcResult):not(.nav-link-logout)
+          @include media-breakpoint-down(sm)
+            margin: 0 auto 0 0 !important
+          @include media-breakpoint-down(sm)
+            margin-right: 4px !important
+            width: 50px
+            height: 40px
+            padding: 0 !important
+          @include media-breakpoint-down(xs)
+            margin-right: 0 !important
+        &:not(.nav-link-calc):not(.nav-link-calcResult):hover
+          opacity: .68
+        &:not(.active):focus, &:not(.active):active
+          border-color: $color-text !important
+
+        &.active
+          opacity: .5
+
+        &-notes, &-addBill, &-user, &-logout
+          border-radius: 0
+          border: 0
+          display: flex
+          padding: 0
+          margin-right: 15px
+          width: 46px
+          color: $color-blue
+          background: white
+          svg
+            margin: auto
+        &-tax, &-bills, &-addBill
+          color: white !important
+          &.active, &:hover
+            color: white !important
+        &-tax
+          background-color: $color-orange !important
+          border-color: $color-orange !important
+          &:hover
+            background-color: $color-orange !important
+            border-color: $color-orange !important
+
+        &-bills
+          background-color: $color-arcblue !important
+          border-color: $color-arcblue !important
+        &-addBill
+          padding: 0 !important
+          background-color: $color-darkgreen !important
+          border-color: $color-darkgreen !important
+
+        &-calcBtn
+          border-radius: 0
+        &-calc
+          height: 34px !important
+          @include media-breakpoint-down(sm)
+            position: fixed
+            top: 50px
+            left: 50%
+            width: 275px !important
+            transform: translateX(-50%)
+            border: 0 !important
+            padding: 0 !important
+          input
+            border: 0 !important
+            padding: 4px 20px 2px 8px
+            border-bottom: 0 !important
+            outline: 0 !important
+            margin-bottom: 0
+            max-height: 100%
+            max-width: 180px
+            @include media-breakpoint-down(sm)
+              padding-top: 0 !important
+              padding-bottom: 3px
+              text-align: center
+              max-width: 100%
+              width: 275px
+              min-width: 100%
+              border-left: 1px solid $color-background !important
+
+        &-calcResult
+          width: 0 !important
+          min-width: 0
+          transform: translateX(100%)
+          padding: 1px 0 0 0
+          background-color: transparent !important
+          color: white !important
+          border: 0 !important
+          @include media-breakpoint-up(md)
+            padding-top: 3px
+            display: inline-block !important
+          @include media-breakpoint-down(lg)
+            transform: translate(-12px, -22px)
+          @include media-breakpoint-down(sm)
+            position: fixed
+            background: linear-gradient(to right, transparent, #deedff, #deedff 20%, #deedff 80%, #deedff, transparent) !important
+            top: 79px
+            left: 50%
+            transform: translateX(-50%)
+            width: auto !important
+            margin: 0
+            border: 0 !important
+            color: $color-blue !important
+            min-width: 275px
+            text-align: center
+            height: 19px !important
+            padding: 0 14px !important
+          &:hover
+            color: $color-lightgreen !important
+        &-templates
+          border-top: 2px solid white !important
+          padding-top: 4px !important
+          @include media-breakpoint-down(lg)
+            padding-top: 6px !important
+          @include media-breakpoint-down(md)
+            width: 34px
+            display: flex
+            justify-content: center
+            align-items: center
+          @include media-breakpoint-down(sm)
+            padding-top: 0 !important
+          >div
+            @include media-breakpoint-down(md)
+              height: 1em !important
+              display: flex
+              margin-top: 2px
+            @include media-breakpoint-down(sm)
+              margin-top: 0
+          &.active
+            color: $color-blue !important
+        &-user
+          margin-right: 30px
+        &-logout
+          box-shadow: inset 1px 1px 3px #7f9fc02e !important
+          border-right: 0 !important
+          border-top-width: 4px !important
+          margin-right: 0
+          height: 100%
+
+        >div
+          height: 100%
+          @include media-breakpoint-down(sm)
+            display: flex
+            justify-content: center
+            align-items: center
+
+      &-middle
+        position: unset
+        margin: 0 auto !important
+        @include media-breakpoint-down(sm)
+          margin: 0 0 0 auto !important
+        .nav-link
+          input
+            height: inherit
+            box-shadow: none !important
+          &-notes
+            margin-right: 15px
+
+
+
+

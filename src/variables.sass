@@ -1,0 +1,249 @@
+@import "~bootstrap/scss/_functions.scss"
+@import "~bootstrap/scss/mixins/_breakpoints.scss"
+@import "~bootstrap/scss/_variables.scss"
+
+$color-background-light: #f1f8ff
+$color-background-whiteblue: #ecf5ff
+$color-background: #deedff
+$color-background-border: #7694b2
+//$color-lightbackground-background: #87afd8
+$color-lightbackground-background: #8fb8e3
+$color-garyblue: #5583b1
+$color-background-dark: #316192
+$color-arcblue: #3881b7
+$color-blue: #316192
+$color-text-darker: #225488
+$color-text: #496077
+$color-lightblue: #deedff
+$color-purple: #84578d
+$color-whitered: #f4ebeb
+//$color-red: #9a2626
+$color-red: #ad3131
+$color-lightred: #e17b7b
+$color-lighterred: #d5adad
+//$color-orange: #eca254
+//$color-orange: #ddaf43
+$color-orange: #d7971d
+$color-lightorange: #e2cc76
+$color-whiteorange: rgb(247, 243, 204)
+$color-darkgreen: #4a8e33
+$color-green: #8dba8f
+$color-lightgreen: #8dc090
+$color-whitegreen: #e9f4e9
+$color-focus: rgba($color-blue, .8)
+
+
+$page-padding-v: 38px
+$page-padding-vb: 55px
+$page-padding-h: 45px
+
+
+
+.btn-white-blue
+  color: $color-blue !important
+  border-color: $color-lightbackground-background !important
+  box-shadow: inset 1px 1px 3px #7f9fc02e !important
+  background: white
+  &:hover
+    background-color: $color-arcblue !important
+    border-color: $color-arcblue !important
+    color: white !important
+  &:focus, &:active
+    outline: 1px rgba($color-lightbackground-background, .6) solid !important
+    color: $color-blue !important
+    background-color: white !important
+
+
+.btn-blue-white
+  background-color: $color-blue !important
+  color: white !important
+  &:hover
+    background-color: #4084b6 !important
+    border-color: #4084b6 !important
+    color: white !important
+  &:focus, &:active
+    opacity: .93
+    border-color: #0a2b55 !important
+    outline: 1px rgba($color-lightbackground-background, .6) solid !important
+
+.btn-lightBackgroundBackground-white
+  background-color: $color-lightbackground-background !important
+  border-color: $color-lightbackground-background !important
+  color: white !important
+  &:hover
+    background-color: $color-blue !important
+    border-color: $color-blue !important
+    color: white !important
+
+.btn-nDefault
+  width: 36px
+  height: 26px
+  border-radius: 0
+  line-height: 20px
+  padding: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  transition: .2s ease
+  background: white
+  border: 2px solid $color-blue
+  color: $color-blue
+  &:after
+    display: none
+  &:hover, &:active
+    background-color: $color-blue
+    border-color: $color-blue
+    color: white
+
+.btn-semiActive
+  background-color: $color-garyblue !important
+  border-color: $color-garyblue !important
+  color: white !important
+  &:hover
+    background-color: #4084b6 !important
+    border-color: #4084b6 !important
+    color: white !important
+  &:focus, &:active
+    opacity: .93
+    border-color: #0a2b55 !important
+
+.btn-active
+  &:not(-on)
+    @extend .btn-blue-white
+  &-on
+    @extend .btn-lightBackgroundBackground-white
+
+.btn-inActive
+  &:not(-on)
+    @extend .btn-lightBackgroundBackground-white
+  &-on
+    @extend .btn-blue-white
+
+.btn-tDefault
+  height: 36px
+  line-height: 20px
+  background: #acc1d9
+  border: 2px solid $color-blue
+  border-radius: 0
+  color: white
+  //text-shadow: 1px 1px 0 $color-blue
+  font-weight: bold
+  letter-spacing: 0.03em
+  padding: 0 12px
+  display: flex
+  justify-content: center
+  align-items: center
+  transition: .2s ease
+  @include media-breakpoint-down(sm)
+    min-height: 30px
+    max-height: 30px
+  &:hover
+    background-color: $color-arcblue
+    border-color: $color-arcblue !important
+  &:active
+    background-color: $color-blue !important
+    border-color: $color-blue !important
+  &:focus
+    box-shadow: none !important
+  &[disabled=""], &[disabled="true"]
+    background-color: $color-arcblue !important
+    border-color: $color-arcblue !important
+    &:hover, &:active, &:focus
+      opacity: .65
+      background-color: $color-arcblue !important
+      border-color: $color-arcblue !important
+
+
+.btn-sortTable
+  width: 100%
+  text-align: left
+
+
+.btn-tSubmit
+  @extend .btn-tDefault
+  background-color: $color-green !important
+  border-color: $color-darkgreen !important
+  border-bottom: 0 !important
+  color: white !important
+  width: 38.6%
+  right: 0
+  bottom: 0
+  border-right: 0
+  float: right
+  margin-right: -20px
+  min-width: 270px
+  &:hover
+    background-color: $color-darkgreen !important
+    border-color: $color-darkgreen !important
+  &:focus, &:active
+    opacity: .8
+    color: white !important
+    border-color: #163417 !important
+
+
+
+.btn-delete
+  padding: 0
+  position: absolute
+  right: 0
+  top: 0
+  height: 54px
+  width: 20px
+  border-radius: 0
+.btn-tDelete
+  @extend .btn-tDefault
+  border-color: $color-red
+  background-color: $color-red
+  &:focus
+    border-color: $color-lightred
+  &:hover
+    background-color: $color-lightred
+    border-color: $color-lightred
+
+.btn-cardMore
+  z-index: 1
+  margin-left: -15px
+  border-left: 0 !important
+  border-bottom: 0 !important
+.btn-cardEdit
+  position: absolute
+  bottom: 0
+  right: 0
+  border-bottom: 0
+  border-right: 0
+
+.btn-info
+  position: absolute !important
+  font-size: 11px
+  background: transparent !important
+  padding: 0
+  border-radius: 100%
+  width: 20px
+  height: 20px
+  border: 0 solid $color-lightred
+  color: $color-lightorange
+  &:hover
+    color: $color-orange
+
+
+.btn-linkText
+  border: 0 !important
+  background: transparent !important
+  box-shadow: none !important
+  border-radius: 0 !important
+  font-weight: bold !important
+  color: rgba($color-background-border, .8)
+  padding: 5px 6px 5px 0
+  &:hover
+    border: 0 !important
+    background: transparent !important
+    box-shadow: none !important
+    border-radius: 0 !important
+    font-weight: bold !important
+    color: $color-orange
+
+  &:focus, &:active
+    box-shadow: none !important
+    border: 0 !important
+    color: $color-blue !important
+

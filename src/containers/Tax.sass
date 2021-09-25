@@ -1,0 +1,185 @@
+@import "../variables"
+
+@keyframes loadUstrCheck
+  0%
+    opacity: 0
+  50%
+    opacity: 0
+  100%
+    opacity: 1
+
+@keyframes loadCheck
+  0%
+    transform: rotate(0)
+  100%
+    transform: rotate(360deg)
+
+@keyframes animateUnchecked
+  0%
+    background-color: transparent
+  100%
+    background-color: $color-whitered
+
+.Tax
+
+  .fix-table-noScroll
+    @include media-breakpoint-down(lg)
+      max-width: calc(100% - 2px) !important
+
+  width: calc(100% + 2px)
+  .dNoneNetto
+    display: none
+  .row.tableHeader
+    padding: .375rem .75rem 0
+    .col
+      text-align: right
+      &:first-child
+        text-align: left
+
+  .toggleTr
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 1
+    width: 100%
+
+  .sub-tr
+    td:first-child
+      border: 0
+  .tr-empty
+    &:first-child, &+.tr-empty, &:last-child
+      display: none
+  th, td
+    &:nth-child(n +3)
+      opacity: 1
+      text-align: right
+  th
+    padding-top: 0
+    &.th-netto, &.th-mwst, &.th-brutto
+      >div
+        color: white
+        text-align: left
+        max-width: 164px !important
+        min-width: 100px !important
+        width: 100% !important
+    &.th-netto >div
+      background-color: $color-arcblue !important
+    &.th-mwst >div
+      background-color: $color-orange !important
+    &.th-brutto >div
+      background-color: $color-darkgreen !important
+    #checkUstrInfo
+      width: 100%
+      height: 32px
+      padding-top: 6px !important
+      @include media-breakpoint-down(lg)
+        padding-top: 1px !important
+        height: 29px
+      @include media-breakpoint-down(md)
+        text-align: center
+      .card-info
+        margin-left: -5px
+      .btn-Ustr
+        text-align: right
+        width: 84px
+        font-size: 0.71rem !important
+        padding-right: 10px !important
+        @include media-breakpoint-down(lg)
+          width: 58px
+        @include media-breakpoint-down(md)
+          text-align: center
+          width: 49px
+
+        &:hover, &:focus, &:active
+          font-size: 0.71rem !important
+          background: transparent !important
+          border: 0 !important
+        &:not(.active)
+          padding-right: 25px !important
+          @include media-breakpoint-down(lg)
+            width: 88px
+            margin-left: -13px !important
+            margin-top: 7px !important
+        &.active
+          @include media-breakpoint-down(md)
+            transform: translate(6px, 2px) !important
+      .btn-info
+        left: unset !important
+        right: -2px !important
+      .form-check
+        padding-left: 0
+        padding-right: 26px
+        @include media-breakpoint-down(md)
+          padding-left: 5px
+          padding-right: 14px
+    div
+      display: inline-block
+  td
+    @include media-breakpoint-down(sm)
+      padding-right: 0 !important
+      &:nth-child(3), &:nth-child(4), &:nth-child(5)
+        min-width: 100px
+    &:hover
+      background-color: transparent !important
+    &:nth-child(n +3)
+      opacity: 1
+    .td-netto
+      font-weight: bold
+      color: $color-arcblue
+    .td-mwst
+      font-weight: bold
+      color: $color-orange
+    .td-brutto
+      font-weight: bold
+      color: $color-darkgreen
+    &.col-ust
+      padding-bottom: 17px
+      @include media-breakpoint-down(md)
+        text-align: left
+      >div
+        padding-left: 0
+        @include media-breakpoint-down(sm)
+          padding-left: 14px
+        >input
+          animation: loadUstrCheck
+          animation-duration: .5s
+          &[disabled=""]
+            animation: loadCheck .2s infinite
+
+
+  .table-ustrcheck
+    tr
+      &.isChecked
+        background-color: $color-whitegreen
+        &:hover
+          background: #d8ead8
+        td:last-child:hover
+          background-color: $color-whitegreen
+
+      &.isUnchecked
+        animation: animateUnchecked 2s
+        background-color: $color-whitered
+        &:hover
+          background-color: #e8cdcd
+        td:last-child:hover
+          background-color: $color-whitered
+
+        &.noColor
+          background-color: rgba($color-lightblue, .5)
+          &:hover
+            background-color: #eeeaba !important
+
+      &.noColor
+        background-color: rgba($color-lightblue, .5)
+        &:hover
+          background-color: #efeee3 !important
+
+  .select-umstr select
+    position: absolute
+    right: 15px
+    top: 36px
+    z-index: 1
+    width: 200px
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M2 5l6 6 6-6'/%3e%3c/svg%3e")
+
