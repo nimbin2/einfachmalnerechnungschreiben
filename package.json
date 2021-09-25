@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.34",
-    "@fortawesome/free-solid-svg-icons": "^5.15.2",
-    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.15",
     "@react-pdf/renderer": "^1.6.13",
     "axios": "^0.19.2",
     "bootstrap": "^4.6.0",
@@ -16,7 +16,7 @@
     "node-sass": "^4.14.1",
     "pdf-viewer-reactjs": "^2.2.2",
     "react": "^16.14.0",
-    "react-bootstrap": "^1.4.3",
+    "react-bootstrap": "^1.6.4",
     "react-bootstrap-date-picker": "^5.1.0",
     "react-bootstrap-maskedinput": "^0.4.0",
     "react-currency-format": "^1.0.0",
@@ -25,7 +25,7 @@
     "react-escape-outside": "^0.1.2",
     "react-number-format": "^4.4.4",
     "react-pdf": "^4.2.0",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^5.3.0",
     "react-scripts": "^3.4.4"
   },
   "scripts": {

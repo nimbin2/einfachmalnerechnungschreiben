@@ -69,6 +69,7 @@ export default class MapPages extends Component {
         Api.getUser().then((response) => {
             let data = response.data
             let userDataError = false
+            console.log("huu", data)
             Object.entries(data).forEach((item) => {
                 if (!item[1]) {
                     userDataError = true

@@ -46,13 +46,20 @@ class Register extends React.Component {
 
 
         if (isValid) {
-
-            Api.addUser(this.state.name, this.state.password, this.state.repeatPassword).then(() => {
-                errors["success"] = "Du wurdest registriert.";
-                this.setState({success: true, errors: errors, loadScreen: false})
-                isValid && window.setTimeout(() => {
-                    history.push("login")
-                }, 2600)
+            Api.addUser(this.state.name, this.state.password, this.state.repeatPassword).then((response) => {
+                console.log(response)
+                console.log(response.data.id)
+                let userExist = response.data.id !== 0
+                console.log("userExist", userExist)
+                if(!userExist) {
+                    errors["success"] = "Du wurdest registriert.";
+                    this.setState({success: true, errors: errors, loadScreen: false})
+                    isValid && window.setTimeout(() => {
+                        history.push("login")
+                    }, 2600)
+                } else {
+                    errors["username"] = "Der Benutzername ist bereits vergeben"
+                }
             }).catch((error) => {
                 isValid = false;
                 if( error.response ){
@@ -62,11 +69,11 @@ class Register extends React.Component {
                         errors["server"] = "Es gab leider ein Server fehler, bitte versuche es später ernäut."
                     }
                 }
-                this.setState({loadScreen: false})
             });
         }
-        this.setState({errors: errors})
-
+        window.setTimeout(() => {
+            this.setState({errors: errors, loadScreen: false})
+        }, 300)
     }
 
 
