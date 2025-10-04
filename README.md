@@ -1,2 +1,1 @@
-https://einfachmalnerechnungschreiben.de/
-test123 test123
+Diese seite enthält sicherheitsprobleme und sollte in dem aktuellen Status nicht genutzt werden.
